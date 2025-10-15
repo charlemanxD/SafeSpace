@@ -4,7 +4,21 @@
 SafeSpace is a web application that provides a private, anonymous, and supportive digital space for women.  
 Users can share experiences, access verified resources, connect with peers, and support the platform through donations — all while staying completely anonymous.
 
-This project supports:
+**SafeSpace** is a dedicated web application, providing a **private, anonymous, and secure environment** for women. It serves as a vital digital hub to facilitate:
+
+- **Secure Sharing:** Anonymously voice personal experiences and stories without fear of judgment, exposure, or retribution.
+    
+- **Curated Support & Resources:** Direct access to vetted, professional resources across key areas, including **mental health services, legal aid, wellness programs, and career development support**.
+    
+- **Community Connection:** Foster strength and resilience through **peer-to-peer support** and community encouragement, building a network of mutual aid.
+    
+- **Proactive Safety:** Immediate reporting mechanisms with **swift, dedicated moderation** to ensure a consistently safe and respectful digital space by removing inappropriate or harmful content.
+    
+- **Sustainable Mission:** Provide opportunities for community members to support the platform's long-term growth and service expansion through donations.
+
+## **Alignment with Global Goals**
+
+This project is a direct action toward achieving:
 - **SDG 5 – Gender Equality**
 - **SDG 3 – Good Health & Well-Being**
 - **SDG 16 – Peace, Justice & Strong Institutions**
@@ -15,7 +29,7 @@ This project supports:
 - **Anonymous Posting:** Users share experiences using pseudonyms only.  
 - **Peer Support:** Comment system for encouragement and shared advice.  
 - **Resource Hub:** Curated list of verified mental health, legal, and wellness organizations.  
-- **AI Moderation:** Uses either **Stream**, **OpenAI Moderation API**, or **Google Perspective API** to detect and filter toxic or harmful content.  
+- **AI Moderation:** **Google's Perspective API** to detect and filter toxic or harmful content.  
 - **Support Us / Donate:** Integrated Paystack or Stripe donation page for community and NGO support.
 
 ---
@@ -24,7 +38,7 @@ This project supports:
 - **Frontend:** React + Tailwind CSS  
 - **Backend:** Node.js + Express  
 - **Database:** MongoDB Atlas  
-- **Content Moderation APIs:** Stream, OpenAI Moderation, or Google Perspective API (for toxicity and abuse detection)  
+- **Content Moderation APIs:** Google's Perspective API (for toxicity and abuse detection)  
 - **Payment Integration:** Paystack (Africa/Ghana) or Stripe (global)  
 - **Deployment:** Vercel (frontend), Firebase/Heroku (backend)
 
