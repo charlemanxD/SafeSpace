@@ -87,8 +87,8 @@ This project is a direct action toward achieving:
 
 ## 🤝 Contributors
 Team **SafeSpace** — PLP Final Project  
-- Design & Content: *Juliet Asiedu* 
-- Technical & Product Lead: *Mawupemo Daniel Sotongbe*
+- Design & Content: [Juliet Asiedu](https://github.com/AJ-254)
+- Technical & Product Lead: [Mawupemo Daniel Sotongbe](https://github.com/charlemanxD)
 
 ---
 
