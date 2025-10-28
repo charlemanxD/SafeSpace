@@ -72,8 +72,8 @@ This project is a direct action toward achieving:
 
 ## 🧩 SDG Impact
 - **SDG 5:** Empower women through inclusive digital engagement.  
-- **SDG 3:** Foster mental well-being by offering safe expression.  
-- **SDG 16:** Build a peaceful, accountable, and supportive community online.
+- **SDG 3 (Indirect):** Foster mental well-being by offering safe expression.  
+- **SDG 16 (Indirect):** Build a peaceful, accountable, and supportive community online.
 
 ---
 
