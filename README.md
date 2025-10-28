@@ -20,8 +20,8 @@ Users can share experiences, access verified resources, connect with peers, and 
 
 This project is a direct action toward achieving:
 - **SDG 5 – Gender Equality**
-- **SDG 3 – Good Health & Well-Being**
-- **SDG 16 – Peace, Justice & Strong Institutions**
+- **SDG 3 – Good Health & Well-Being (indirect)**
+- **SDG 16 – Peace, Justice & Strong Institutions (indirect)**
 
 ---
 
