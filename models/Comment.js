@@ -10,7 +10,8 @@ const commentSchema = new mongoose.Schema({
         
     pseudonymID: { type: String, 
         required: true, 
-        index: true }, // To find all comments by a user.
+        index: true // find all comments by a user.
+    }, 
 
     content: { 
         type: String, 
@@ -20,7 +21,7 @@ const commentSchema = new mongoose.Schema({
 
     status: {
         type: String,
-        dafault: 'active'
+        default: 'active'
     }
     
 },  { timestamps: true });

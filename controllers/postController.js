@@ -1,5 +1,6 @@
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
+const { checkToxicity } = require('../services/moderationService');
 
 
 // @route Post /api/posts
@@ -9,14 +10,28 @@ exports.createPost = async (req, res) => {
     // Extract pseudonymID from the JWT token validated by the 'auth' middleware
     const { pseudonymID} = req.user;
     // Extract title and content from the request body
-    const { title, content } = req.body;
+    const { content } = req.body;
 
-    // TODO -- Integrate PERSPECTIVE API checks(BEFORE saving the POST)
-
+    // --- PERSPECTIVE API checks(BEFORE saving the POST) ---
 
     try {
+        //  1. CONTENT MODERATION CHECK
+        const { isToxic, score } = await checkToxicity(content);
+
+        if(isToxic) {
+            console.warn(`Toxic Post detected from ${pseudonymID}. Score: ${score}`);
+            
+
+            // Block Post creation and inform User
+            return res.status(400).json({
+                msg: 'Post flagged as Harmful or Toxic. Please revise and Try again.',
+                score: score
+            });
+        }
+
+            // 2. Proceed with post creation if non-toxic
             const newPost = new Post({
-            title,
+            // title,
             content,
             pseudonymID
         });
@@ -24,7 +39,8 @@ exports.createPost = async (req, res) => {
 
         // FrontEnd response, Displays Post and posterID.
         res.status(201).json({
-            post: content,
+            post: content.createdAt,
+            // post: post.createdAt,
             poster: pseudonymID
         });
 
@@ -38,7 +54,6 @@ exports.createPost = async (req, res) => {
 
 
 
-
 // @route GET /api/posts
 // @desc Get all posts (the feed)
 // @access Public
@@ -48,7 +63,7 @@ exports.getAllPosts = async (req, res) => {
         const posts = await Post.find({ status: 'active' })
         .sort({ createdAt: -1 });
 
-        // FrontEnd Success response
+        // Frontend Success response
         res.json(posts);
         } catch (err) {
         // Backend Failure Response
@@ -58,7 +73,6 @@ exports.getAllPosts = async (req, res) => {
     }
     
 };
-
 
 
 
@@ -108,7 +122,25 @@ exports.addComment = async (req, res) => {
             res.status(404).json({ mgs: 'Post not found' });
         }
 
-        // 2. Create the Comment
+        //  2. CONTENT MODERATION CHECK
+        const { isToxic, score } = await checkToxicity(content);
+
+        if(isToxic) {
+            console.warn(`Toxic Comment detected from ${pseudonymID}. Score: ${score}`);
+
+            // TODO: Phase 72-hour ban logic
+
+            // Block Post creation and inform User
+            return res.status(400).json({
+                msg: 'Comment flagged as Harmful or Toxic. Please revise and Try again.',
+                score: score
+            });
+        }
+
+
+
+
+        // 3. Create the Comment if non-toxic
         const newComment = new Comment({
             postId,
             pseudonymID,
@@ -144,9 +176,9 @@ exports.getCommentsByPost = async (req, res) => {
             .sort({ createdAt: 1 });
         res.json(comments);
     } catch (err) {
-        // Backend response, if fecting Comments FAILS
+        // Backend response, if fetching Comments FAILS
         console.error('Error fetching comments:', err.message);
-        // FrontEnd response, if fecting Comments FAILS
+        // FrontEnd response, if fetching Comments FAILS
         res.status(500).send('Server error. Could not retrieve comments.');
     }
 };

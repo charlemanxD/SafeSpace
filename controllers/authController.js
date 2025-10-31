@@ -9,8 +9,7 @@ const { randomUUID } = require('crypto'); // in-built UUID library generator
 //  JWT Secret key
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// Function to generate a unique ID  and create a Pseudonym
-// UUID is secure and ensures global uniqueness.
+// Function to generate a unique ID  and create a UNIQUE Pseudonym
 const generatePseudonymID = () => {
     // Take the first 8 characters of a UUID for a slightly shorter, unique ID
     return 'User-' + randomUUID().substring(0, 8); 
@@ -53,7 +52,7 @@ exports.registerUser = async (req, res) => {
 
         await user.save();
 
-        // 5. Create JWT Payload (Critical: only include non-sensitive data)
+        // 5. Create JWT Payload 
         const payload = {
             user: {
                 id: user.id,
@@ -61,28 +60,28 @@ exports.registerUser = async (req, res) => {
             }
         };
 
-        // 6. Sign/Generate the Token and Send Response
+        // 6. Generate the Token and Send Response
         try {
             const token = jwt.sign(
                 payload,
                 JWT_SECRET,
-                { expiresIn: '1h' }
+                { expiresIn: '2d' }
             );
             // The response in the terminal, If JWT Token creation SUCESSFUL
-            // res.json({ token, pseudonymID: user.pseudonymID });
             console.log({token, pseudonymID: user.pseudonymID})
 
             // The response in the FrondEnd if JWT Token creation SUCESSFUL
             res.status(201).json({
-                msg: 'Registrtion Successful ✅.',
-                pseudoID: user.pseudonymID
+                msg: 'Registration Successful ✅.',
+                pseudoID: user.pseudonymID,
+                token: token // Send token to the frontend
             });
             
         } catch (jwtErr) {
-            // TEMPORARY The response in the terminal  if JWT token creation FAILS
+            // Response in the terminal  if JWT token creation FAILS
             console.error('JWT SIGNING ERROR:', jwtErr.message);
 
-            // TEMPORARY response in FrontEnd  if JWT token creation FAILS
+            // Response in FrontEnd  if JWT token creation FAILS
             return res.status(500).json({
                 msg: 'Registrtion Successful ✅, but token creation failed. Please try logging in.',
                 errorDetail: jwtErr.message
@@ -94,7 +93,6 @@ exports.registerUser = async (req, res) => {
         res.status(500).send('Server error during registration.');
     }
 };
-
 
 
 
@@ -137,7 +135,7 @@ exports.loginUser = async (req, res) => {
             const token =   jwt.sign(
             payload,
             JWT_SECRET,
-            { expiresIn: '1h' }
+            { expiresIn: '2d' }
         );
 
         // Backend response, if the JWT token creation is a SUCCESS
@@ -145,7 +143,8 @@ exports.loginUser = async (req, res) => {
 
         // FrontEnd response, if the JWT token creation is a SUCCESS
         res.json({
-            msg: `You are LOGGED-IN! Welcome, ${user.pseudonymID}`
+            msg: `You are LOGGED-IN! Welcome, ${user.pseudonymID}`,
+            token: token // Send token to the frontend
         })
         } catch (jwtErr) {
             // Backend response, if JWT token creation FAILS
