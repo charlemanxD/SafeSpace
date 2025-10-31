@@ -20,8 +20,8 @@ Users can share experiences, access verified resources, connect with peers, and 
 
 This project is a direct action toward achieving:
 - **SDG 5 – Gender Equality**
-- **SDG 3 – Good Health & Well-Being**
-- **SDG 16 – Peace, Justice & Strong Institutions**
+- **SDG 3 – Good Health & Well-Being (indirect)**
+- **SDG 16 – Peace, Justice & Strong Institutions (indirect)**
 
 ---
 
@@ -72,8 +72,8 @@ This project is a direct action toward achieving:
 
 ## 🧩 SDG Impact
 - **SDG 5:** Empower women through inclusive digital engagement.  
-- **SDG 3:** Foster mental well-being by offering safe expression.  
-- **SDG 16:** Build a peaceful, accountable, and supportive community online.
+- **SDG 3 (Indirect):** Foster mental well-being by offering safe expression.  
+- **SDG 16 (Indirect):** Build a peaceful, accountable, and supportive community online.
 
 ---
 
@@ -87,8 +87,8 @@ This project is a direct action toward achieving:
 
 ## 🤝 Contributors
 Team **SafeSpace** — PLP Final Project  
-- Design & Content: *Juliet Asiedu* 
-- Technical & Product Lead: *Mawupemo Daniel Sotongbe*
+- Design & Content Lead: [Juliet Asiedu](https://github.com/AJ-254)
+- Technical & Product Lead: [Mawupemo Daniel Sotongbe](https://github.com/charlemanxD)
 
 ---
 
