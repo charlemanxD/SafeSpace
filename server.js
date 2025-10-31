@@ -5,6 +5,8 @@ const connectDB = require('./db/conn');
 // const customLogger = require('./middleware/loggerMiddleware');
 const authRoutes = require('./routes/authRoutes');
 const postRoutes = require('./routes/postRoutes');
+const resourceRoutes = require('./routes/resourceRoutes');
+const donationRoutes = require('./routes/donationRoutes');
 
 
 // PORT
@@ -20,7 +22,7 @@ const app = express();
 // app.use(customLogger);
 
 // 2. Body Parser
-app.use(express.json({ extended: false }))
+app.use(express.json());
 
 // OTHER MIDDLEWARES
 
@@ -29,20 +31,32 @@ app.use(express.json({ extended: false }))
 // ********** Middleware Setup - [END] **********
 
 
-
-
 // Database Connection
 connectDB();
 
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/posts', postRoutes);
-// app.use('/api/users', require('./routes/userRoutes'));
 
-// DEFAULT(HOME) Route
+// ********** API Routes - [START] **********
+
+app.use('/api/auth', authRoutes);
+
+// Posts routes
+app.use('/api/posts', postRoutes);
+
+// Resources routes
+app.use('/api/resources', resourceRoutes);
+
+// Donation Routes
+app.use('/api/donate', donationRoutes);
+
+
+// HOME(DEFAULT) Route
 app.get('/', (req, res) => {
-    res.send('Welcome to the SAFESPACE API! Go to /api/users to see all users ...');
+    res.send('Welcome to the SAFESPACE API! ...');
 });
+
+
+// ********** API Routes - [END] **********
+
 
 // Start the server
 app.listen(PORT, () => {
