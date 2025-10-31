@@ -37,7 +37,7 @@ exports.analyzeRequest = async (text) => {
 
 
 /**
- * SCheck if the content exceeds predefined Toxicity treshold.
+ * Check if the content exceeds predefined Toxicity treshold.
  * @param {string} content - The Test to check
  * @returns {object} - { isToxic: Bolean, score: number }
  */
