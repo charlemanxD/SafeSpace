@@ -50,9 +50,9 @@ app.use('/api/donate', donationRoutes);
 
 
 // HOME(DEFAULT) Route
-app.get('/', (req, res) => {
-    res.send('Welcome to the SAFESPACE API! ...');
-});
+// app.get('/', (req, res) => {
+//     res.send('Welcome to the SAFESPACE API! ...');
+// });
 
 
 // ********** API Routes - [END] **********

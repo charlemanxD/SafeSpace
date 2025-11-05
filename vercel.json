@@ -1,15 +1,35 @@
+{
+"version": 2,
+"builds": [
     {
-    "version": 2,
-    "builds": [
-        {
-        "src": "server.js",
-        "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-        "src": "/(.*)",
-        "dest": "server.js"
-        }
-    ]
+    "src": "fontend/package.json",
+    "use": "@vercel/static-build",
+    "config": {
+        "outputDirectory": "dist"
     }
+    },
+    {
+    "src": "server.js",
+    "use": "@vercel/node"
+    }
+],
+"routes": [
+    {
+    "src": "/(.*)",
+    "dest": "server.js"
+    },
+    {
+    "src": "/(.*)",
+    "dest": "fontend/$1"
+    }
+],
+"env": {
+    "JWT_SECRET": "@jwt_secret",
+    "ATLAS_URI": "@mongo_uri",
+    "PAYSTACK_SECRET_KEY": "@paystack_secret_key",
+    "PAYSTACK_PUBLIC_KEY": "@paystack_public_key",
+    "PAYSTACK_WEBHOOK_URL": "@paystack_webhook_url",
+    "PERSPECTIVE_API_KEY": "@perspective_api_key",
+    "PORT": "5050"
+    }
+}
