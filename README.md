@@ -74,17 +74,17 @@ This project is a direct action toward achieving:
 
 ## 💻 Pitch Deck
 Read mre about this project here:
-👉: [SafeSpace Pitch Deck](https://www.canva.com/design/DAG3B0d5yQE/Rg-5RkdPMDiXjI-iadGJgw/edit?utm_content=DAG3B0d5yQE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+👉 [SafeSpace Pitch Deck](https://www.canva.com/design/DAG3B0d5yQE/Rg-5RkdPMDiXjI-iadGJgw/edit?utm_content=DAG3B0d5yQE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
 
 ## ⚙️ Deployment
 This project is live at:
-👉: 
+👉 
 
 ---
 
-## Demo (Screenshot)
+## 🎬 Demo (Screenshot)
 
 ---
 
