@@ -16,12 +16,14 @@ Users can share experiences, access verified resources, connect with peers, and 
     
 - **Sustainable Mission:** Provide opportunities for community members to support the platform's long-term growth and service expansion through donations.
 
-## **Alignment with Global Goals**
+---
+
+## **🧩 Alignment with Global Goals (SDG Impact)**
 
 This project is a direct action toward achieving:
-- **SDG 5 – Gender Equality**
-- **SDG 3 – Good Health & Well-Being (indirect)**
-- **SDG 16 – Peace, Justice & Strong Institutions (indirect)**
+- **SDG 5:** Empower women through inclusive digital engagement.  
+- **SDG 3 (Indirect):** Foster mental well-being by offering safe expression.  
+- **SDG 16 (Indirect):** Build a peaceful, accountable, and supportive community online.
 
 ---
 
@@ -70,10 +72,19 @@ This project is a direct action toward achieving:
 
 ---
 
-## 🧩 SDG Impact
-- **SDG 5:** Empower women through inclusive digital engagement.  
-- **SDG 3 (Indirect):** Foster mental well-being by offering safe expression.  
-- **SDG 16 (Indirect):** Build a peaceful, accountable, and supportive community online.
+## Pitch Deck
+Read mre about this project here:
+👉: [SafeSpace Pitch Deck](https://www.canva.com/design/DAG3B0d5yQE/Rg-5RkdPMDiXjI-iadGJgw/edit?utm_content=DAG3B0d5yQE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+---
+
+## ⚙️ Deployment
+This project is live at:
+👉: 
+
+---
+
+## Demo (Screenshot)
 
 ---
 
