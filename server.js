@@ -71,9 +71,9 @@ app.use('/api/donate', donationRoutes);
 
 
 // Home Route @Development
-// app.get('/', (req, res) => {
-//     res.send('Welcome to the SAFESPACE API! ...');
-// });
+app.get('/', (req, res) => {
+    res.send('Welcome to the SAFESPACE API! ...');
+});
 
 // Home Route @Production
 // app.use(express.static(path.join(__dirname, 'frontend/dist')));
