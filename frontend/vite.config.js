@@ -12,15 +12,15 @@ export default defineConfig({
     },
   },
 
-  server: {
-    proxy: {
-      // Forward all requests starting with /api to your Express backend
-      '/api': {
-        target: 'http://localhost:5050', // **Ensure your Express backend port is 5000**
-        changeOrigin: true,
-        secure: false, 
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     // Forward all requests starting with /api to your Express backend
+  //     '/api': {
+  //       target: 'http://localhost:5050',
+  //       changeOrigin: true,
+  //       secure: false, 
+  //     },
+  //   },
+  // },
 
 })

@@ -2,6 +2,10 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 
+
+// Base URL for all API request
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+
 // --- INITIAL STATE ---
 const initialState = {
     isAuthenticated: false,

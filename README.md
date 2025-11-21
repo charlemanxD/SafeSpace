@@ -25,48 +25,99 @@ This project is a direct action toward achieving:
 
 ---
 
-## 🚀 Features
-- **Anonymous Posting:** Users share experiences using pseudonyms only.  
-- **Peer Support:** Comment system for encouragement and shared advice.  
-- **Resource Hub:** Curated list of verified mental health, legal, and wellness organizations.  
-- **AI Moderation:** **Google's Perspective API** to detect and filter toxic or harmful content.  
+## ✨ Features
+- **Anonymous Posting:** Users share experiences using generated pseudonyms only.  
+- **Real-time Toxicity Filtering:** Content is moderated using **Google's Perspective API** 
+    during submission to detect and filter toxic or harmful content.
+- **Secure Authentication**: JWT-based authentication for protected routes.
+- **Secure Donations (GHS):** Integrated with Paystack for voluntary financial support.
 - **Support Us / Donate:** Integrated Paystack or Stripe donation page for community and NGO support.
+- **Resource Hub:**  Curated list of verified mental health, legal, and wellness organizations.  
 
 ---
 
 ## 🧰 Tech Stack
-- **Frontend:** React + Tailwind CSS  
+- **Frontend:** React + Tailwind CSS + Shadcn
 - **Backend:** Node.js + Express  
 - **Database:** MongoDB Atlas  
+- **Authentication:**	JSON Web Tokens (JWT), bcrypt
 - **Content Moderation APIs:** Google's Perspective API (for toxicity and abuse detection)  
-- **Payment Integration:** Paystack (Africa/Ghana) or Stripe (global)  
-- **Deployment:** Vercel (frontend), Firebase/Heroku (backend)
+- **Payment Integration:** Paystack (Africa/Ghana)
+- **Deployment:** Vercel(Frontend) | Render(Backend)
 
 ---
 
-## 🧱 Database Structure (MongoDB)
-| Collection | Fields |
-|-------------|--------|
-| users | _id, username, email, createdAt |
-| posts | _id, userId, content, pseudonym, createdAt, flagged, reportsCount |
-| comments | _id, postId, userId, content, createdAt |
-| resources | _id, category, name, contact, location |
-| reports | _id, targetType, targetId, reporterId, reason, status, createdAt |
+## 📂 Project Structure
+
+SafeSpace/
+├── controllers/          # Express route logic (auth, posts, etc.)
+├── models/               # MongoDB Mongoose schemas (User, Post, Donation, etc.)
+├── routes/               # Express API route definitions
+├── middleware/           # Custom middleware (auth, perspective check)
+├── utils/                # Utility functions (e.g., perspective API handler)
+├── frontend/             # React application source code
+│   ├── public/
+│   ├── src/
+│   │   ├── components/   # Reusable UI components (Navbar, PostCard, ui/...)
+│   │   ├── context/      # Global state (AuthContext)
+│   │   ├── pages/        # Main pages (Feed, Login, Resources, Donate)
+│   │   └── App.jsx       # Main router setup
+│   ├── package.json
+│   └── vite.config.js
+├── .env                  # Environment variables for the backend
+├── package.json          # Backend dependencies
+├── server.js             # Main Express server entry point
+├── vercel.json           # Vercel deployment configuration
+└── README.md             # This file
+
+
+--- 
+
+
+## 🗃️ Database Schema (MongoDB)
+
+1. User Collection (Authentication)
+
+Field,Type,Description
+email,String,User's email (Unique).
+username,String,User's chosen name (Unique).
+hashedPassword,String,Securely hashed password.
+pseudonymID,String,"Unique anonymous ID (e.g., User-a1b2c3d4)."
+status,String,"Account status (active, banned, etc.)."
+createdAt,Date,Timestamp of registration.
+
+2. Post Collection (Feed Content)
+
+Field,Type,Description,
+content,String,The main post text.,
+pseudonymID,String,Pseudonym of the user who created the post.,
+toxicityScore,Number,Last recorded Perspective API toxicity score.,
+comments,Array,Embedded array of comment objects (future feature).,
+createdAt,Date,Timestamp of post creation.
+
+3. Donation Collection (Payment Records)
+
+Field,Type,Description
+transactionRef,String,Unique Paystack transaction reference ID.
+amount,Number,"Donation amount (in base currency unit, e.g., GHS)."
+currency,String,"Currency code (e.g., GHS)."
+email,String,Donor's email address.
+status,String,"Transaction status (pending, success, failed)."
+createdAt,Date,Timestamp of transaction initiation.
 
 ---
 
 ## 🔒 Moderation Flow
-1. User submits a post/comment.  
-2. Text is sent to the chosen moderation API (Stream / OpenAI / Perspective).  
-3. The API returns a confidence score for harmful or unsafe content.  
-4. If above threshold → flagged or blocked.  
+1. User submits a post.  
+2. Text is sent to the chosen moderation  Perspective API Endpoint.  
+3. The API checks the confidence score of the Post.
+4. If harmful or unsafe, content blocked from being posted and prompt the user to review the Post.  
 5. Clean posts are stored and displayed publicly.  
 
 ---
 
 ## 💳 Donations
 - **Local (Ghana/West Africa):** Paystack – supports Mobile Money and card payments.  
-- **Global:** Stripe Checkout – hosted payment page with one-time or recurring options.
 
 ---
 
@@ -79,9 +130,60 @@ This project is a direct action toward achieving:
 
 ## 💡 Future Enhancements
 - AI-powered support chatbot for counseling.  
-- Verified NGO and counselor onboarding.  
+- Verified NGOs and counselors onboarding.  
 - Mobile app (React Native).  
 - Transparency dashboard for donation tracking.
+- Comment integration with real-time moderation.
+- Payments option for international donations(Stripe)
+- Paid advert  for monetization
+
+---
+
+🚀 Getting Started Locally
+Prerequisites
+Node.js (v18+)
+
+MongoDB Instance (Local or remote Atlas cluster)
+
+Paystack Account (for testing donations)
+
+1. Environment Variables
+Create a file named .env in the root SafeSpace directory and add the following:
+
+##### MongoDB
+MONGO_URI=your_mongodb_connection_string
+
+##### Authentication
+JWT_SECRET=a_very_long_random_string_for_jwt_signing
+
+##### Perspective API (for toxicity checks)
+PERSPECTIVE_API_KEY=your_google_perspective_api_key
+
+##### Paystack (for donations)
+PAYSTACK_SECRET_KEY=sk_test_... # Backend Secret Key
+PAYSTACK_PUBLIC_KEY=pk_test_... # Frontend Public Key
+
+2. Install Dependencies
+Install dependencies for both the backend (root) and the frontend (frontend/).
+
+##### Backend dependencies (from the SafeSpace root directory)
+npm install
+
+#####  Frontend dependencies (navigate to the frontend folder)
+cd frontend
+npm install
+
+3. Run the Application
+Start the backend and frontend development servers concurrently.
+
+#### 1. Start the Backend (from the SafeSpace root directory)
+npm run dev-server # (Or whatever script you use to start Node/Express)
+
+#### 2. Start the Frontend (from the frontend directory)
+cd frontend
+npm run dev # (Starts the Vite development server)
+
+The application should now be accessible at http://localhost:5173 (or the port specified by Vite).
 
 ---
 
