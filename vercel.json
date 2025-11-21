@@ -24,12 +24,12 @@
     }
 ],
 "env": {
-    "JWT_SECRET": "@jwt_secret",
-    "ATLAS_URI": "@mongo_uri",
-    "PAYSTACK_SECRET_KEY": "@paystack_secret_key",
-    "PAYSTACK_PUBLIC_KEY": "@paystack_public_key",
-    "PAYSTACK_WEBHOOK_URL": "@paystack_webhook_url",
-    "PERSPECTIVE_API_KEY": "@perspective_api_key",
-    "PORT": "5050"
+    "JWT_SECRET": "@JWT_SECRET",
+    "ATLAS_URI": "@ATLAS_URI",
+    "PAYSTACK_SECRET_KEY": "@PAYSTACK_SECRET_KEY",
+    "PAYSTACK_PUBLIC_KEY": "@PAYSTACK_PUBLIC_KEY",
+    "PAYSTACK_WEBHOOK_URL": "@PAYSTACK_WEBHOOK_URL",
+    "PERSPECTIVE_API_KEY": "@PERSPECTIVE_API_KEY",
+    "PORT": "PORT"
     }
 }

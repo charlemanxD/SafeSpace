@@ -53,8 +53,16 @@ return (
         
         {/* Logo/Home Link */}
         <Link to={state.isAuthenticated ? "/feed" : "/"} 
-            className="text-2xl font-bold text-indigo-700 hover:text-indigo-900 transition-colors">
-        SafeSpace
+            className="flex items-center space-x-3">
+                {/* 💡 REPLACE TEXT OR OLD IMAGE WITH YOUR LOGO */}
+            <img 
+                src="/safespace-logo.png" 
+                alt="SafeSpace Logo" 
+                className="h-8 w-auto pl-12" // Adjust height/width as needed
+            />
+            <span className="text-xl font-bold text-indigo-700">SafeSpace</span>
+                
+            
         </Link>
         
         {/* Navigation Links */}

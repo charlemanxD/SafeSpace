@@ -5,6 +5,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState, useEffect } from "react";
 
+
+const API_URL= import.meta.env.VITE_API_URL || "";
     // Import UI Components
 
     export default function PostCard({ post, onCreate }) {
@@ -21,8 +23,10 @@ import { useState, useEffect } from "react";
 
         async function fetchPosts() {
             try {
-                const res = await fetch("/api/posts");
-                if (!res.ok) throw new Error(await res.text());
+                const res = await fetch(API_URL);
+                if (!res.ok) { 
+                    throw new Error("Network response was not ok");
+                }
                 const data = await res.json();
                 setPosts(data);
             } catch (err) {
@@ -39,7 +43,7 @@ import { useState, useEffect } from "react";
             e.preventDefault();
             setIsSubmitting(true);
             try {
-                const res = await fetch("/api/posts", {
+                const res = await fetch(API_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(draft),

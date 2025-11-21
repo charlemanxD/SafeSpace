@@ -8,11 +8,17 @@ return (
         Welcome to SafeSpace 🤫
     </h1>
     <p className="text-xl text-gray-600 mb-8">
-        Your anonymous platform for sharing and support.
+        Your anonymous Peer Support Network.
     </p>
     <Link to="/register">
         <button className="px-6 py-3 bg-indigo-600 text-white text-lg rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
         Start by Registering
+        </button>
+        <p>or</p>
+    </Link>
+    <Link to="/login">
+        <button className="px-6 py-3 bg-green-500 text-white text-lg rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+        Login Here
         </button>
     </Link>
     </div>
