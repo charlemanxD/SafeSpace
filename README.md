@@ -1,5 +1,10 @@
 ## 🌸 SafeSpace – Anonymous Support Platform for Women
 
+## Safespace is LIVE: 
+
+[Link](https://safe-space-v1.vercel.app/)
+
+
 ## Overview
 SafeSpace is a web application that provides a private, anonymous, and supportive digital space for women.  
 Users can share experiences, access verified resources, connect with peers, and support the platform through donations — all while staying completely anonymous.
@@ -50,7 +55,7 @@ This project is a direct action toward achieving:
 ---
 
 ## 📂 Project Structure
-
+```
 SafeSpace/
 ├── controllers/          # Express route logic (auth, posts, etc.)
 ├── models/               # MongoDB Mongoose schemas (User, Post, Donation, etc.)
@@ -71,7 +76,7 @@ SafeSpace/
 ├── server.js             # Main Express server entry point
 ├── vercel.json           # Vercel deployment configuration
 └── README.md             # This file
-
+```
 
 --- 
 
@@ -80,13 +85,14 @@ SafeSpace/
 
 1. User Collection (Authentication)
 
-Field,Type,Description
-email,String,User's email (Unique).
-username,String,User's chosen name (Unique).
-hashedPassword,String,Securely hashed password.
-pseudonymID,String,"Unique anonymous ID (e.g., User-a1b2c3d4)."
-status,String,"Account status (active, banned, etc.)."
-createdAt,Date,Timestamp of registration.
+| Field | Type | Description |
+| :------- | :------: | -------: |
+| email | String | User's email (Unique). |
+| username| String | User's chosen name (Unique). |
+| hashedPassword | String | Securely hashed password. |
+| pseudonymID | String | "Unique anonymous ID (e.g., User-a1b2c3d4)." |
+| status | String | "Account status (active, etc.)." |
+| createdAt | Date | Timestamp of registration. |
 
 2. Post Collection (Feed Content)
 
@@ -150,7 +156,7 @@ This project is live at:
 
 ---
 
-🚀 Getting Started Locally
+## 🚀 Getting Started Locally
 Prerequisites
 Node.js (v18+)
 
@@ -159,10 +165,17 @@ MongoDB Instance (Local or remote Atlas cluster)
 Paystack Account (for testing donations)
 
 1. Environment Variables
-Create a file named .env in the root SafeSpace directory and add the following:
+
+'Create a file named .env in the root SafeSpace directory and add the following:
 
 ##### MongoDB
 MONGO_URI=your_mongodb_connection_string
+
+#### PORT
+PORT=505
+
+#### CORS
+ALLOWED_ORIGINS=http://localhost:5050
 
 ##### Authentication
 JWT_SECRET=a_very_long_random_string_for_jwt_signing
@@ -178,11 +191,13 @@ PAYSTACK_PUBLIC_KEY=pk_test_... # Frontend Public Key
 Install dependencies for both the backend (root) and the frontend (frontend/).
 
 ##### Backend dependencies (from the SafeSpace root directory)
-npm install
+'npm install'
 
 #####  Frontend dependencies (navigate to the frontend folder)
+```
 cd frontend
 npm install
+```
 
 3. Run the Application
 Start the backend and frontend development servers concurrently.
@@ -217,6 +232,12 @@ To contribute:
 3. Commit your changes **(git commit -m "Add new feature")**
 
 4. Push to your branch and open a Pull Request
+
+---
+
+## Safespace is LIVE:
+
+[Link](https://safe-space-v1.vercel.app/)
 
 ---
 ## 📄 License
