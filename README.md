@@ -1,10 +1,5 @@
 ## 🌸 SafeSpace – Anonymous Support Platform for Women
 
-## Safespace is LIVE: 
-
-[Link](https://safe-space-v1.vercel.app/)
-
-
 ## Overview
 SafeSpace is a web application that provides a private, anonymous, and supportive digital space for women.  
 Users can share experiences, access verified resources, connect with peers, and support the platform through donations — all while staying completely anonymous.
@@ -80,7 +75,6 @@ SafeSpace/
 
 --- 
 
-
 ## 🗃️ Database Schema (MongoDB)
 
 1. User Collection (Authentication)
@@ -96,22 +90,24 @@ SafeSpace/
 
 2. Post Collection (Feed Content)
 
-Field,Type,Description,
-content,String,The main post text.,
-pseudonymID,String,Pseudonym of the user who created the post.,
-toxicityScore,Number,Last recorded Perspective API toxicity score.,
-comments,Array,Embedded array of comment objects (future feature).,
-createdAt,Date,Timestamp of post creation.
+| Field | Type | Description |
+| :------- | :------: | -------: |
+| content,\ | String | The main post text. |
+| pseudonymID | String | Pseudonym of the user who created the post.|
+| toxicityScore | Number | Last recorded Perspective API toxicity score.|
+| comments | Array | Embedded array of comment objects (future feature). |
+| createdAt | Date | Timestamp of post creation |
 
 3. Donation Collection (Payment Records)
 
-Field,Type,Description
-transactionRef,String,Unique Paystack transaction reference ID.
-amount,Number,"Donation amount (in base currency unit, e.g., GHS)."
-currency,String,"Currency code (e.g., GHS)."
-email,String,Donor's email address.
-status,String,"Transaction status (pending, success, failed)."
-createdAt,Date,Timestamp of transaction initiation.
+| Field | Type | Description |
+| :------- | :------: | -------: |
+| transactionRef | String | Unique Paystack transaction reference ID. |
+| amount | Number | "Donation amount (in base currency unit, e.g., GHS)." | 
+| currency | String | "Currency code (e.g., GHS)." |
+| email | String | Donor's email address. |
+| status | String | "Transaction status (pending, success, failed)." |
+| createdAt | Date | Timestamp of transaction initiation. |
 
 ---
 
@@ -137,7 +133,7 @@ Read mre about this project here:
 
 ## ⚙️ Deployment
 This project is live at:
-👉 
+👉 [Link](https://safe-space-v1.vercel.app/)
 
 ---
 
@@ -160,32 +156,33 @@ This project is live at:
 Prerequisites
 Node.js (v18+)
 
-MongoDB Instance (Local or remote Atlas cluster)
+'MongoDB Instance (Local or remote Atlas cluster)'
 
-Paystack Account (for testing donations)
+'Paystack Account (for testing donations)'
 
 1. Environment Variables
 
 'Create a file named .env in the root SafeSpace directory and add the following:
-
-##### MongoDB
+```
+# MongoDB
 MONGO_URI=your_mongodb_connection_string
 
-#### PORT
-PORT=505
+# PORT
+PORT=5050
 
-#### CORS
+# CORS
 ALLOWED_ORIGINS=http://localhost:5050
 
-##### Authentication
+# Authentication
 JWT_SECRET=a_very_long_random_string_for_jwt_signing
 
-##### Perspective API (for toxicity checks)
+# Perspective API (for toxicity checks)
 PERSPECTIVE_API_KEY=your_google_perspective_api_key
 
-##### Paystack (for donations)
+# Paystack (for donations)
 PAYSTACK_SECRET_KEY=sk_test_... # Backend Secret Key
 PAYSTACK_PUBLIC_KEY=pk_test_... # Frontend Public Key
+```
 
 2. Install Dependencies
 Install dependencies for both the backend (root) and the frontend (frontend/).
@@ -203,13 +200,15 @@ npm install
 Start the backend and frontend development servers concurrently.
 
 #### 1. Start the Backend (from the SafeSpace root directory)
-npm run dev-server # (Or whatever script you use to start Node/Express)
+'npm run dev-server # (Or whatever script you use to start Node/Express)'
 
 #### 2. Start the Frontend (from the frontend directory)
+```
 cd frontend
 npm run dev # (Starts the Vite development server)
+```
 
-The application should now be accessible at http://localhost:5173 (or the port specified by Vite).
+'The application should now be accessible at http://localhost:5173 (or the port specified by Vite).'
 
 ---
 
@@ -235,9 +234,9 @@ To contribute:
 
 ---
 
-## Safespace is LIVE:
-
-[Link](https://safe-space-v1.vercel.app/)
+## ⚙️ Deployment
+This project is live at:
+👉 [Link](https://safe-space-v1.vercel.app/)
 
 ---
 ## 📄 License
