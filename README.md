@@ -56,20 +56,21 @@ SafeSpace/
 ├── models/               # MongoDB Mongoose schemas (User, Post, Donation, etc.)
 ├── routes/               # Express API route definitions
 ├── middleware/           # Custom middleware (auth, perspective check)
-├── utils/                # Utility functions (e.g., perspective API handler)
+├── services/             # Utility functions (e.g., perspective API handler)
 ├── frontend/             # React application source code
-│   ├── public/
+│   ├── public/           # App logo and favicon
 │   ├── src/
-│   │   ├── components/   # Reusable UI components (Navbar, PostCard, ui/...)
+│   │   ├── components/   # Reusable UI components (Navbar, PostCard, ProtectedRoute)
+│   │   │   ├── ui/       # Resusable components (Button, Card, Input, Label, Textarea, etc..)
 │   │   ├── context/      # Global state (AuthContext)
-│   │   ├── pages/        # Main pages (Feed, Login, Resources, Donate)
+│   │   ├── pages/        # Main pages (Home, Feed, Login, Register, Resources, Donate)
 │   │   └── App.jsx       # Main router setup
+│   ├── .env              # Environment variables for the frontend
 │   ├── package.json
 │   └── vite.config.js
 ├── .env                  # Environment variables for the backend
 ├── package.json          # Backend dependencies
 ├── server.js             # Main Express server entry point
-├── vercel.json           # Vercel deployment configuration
 └── README.md             # This file
 ```
 
@@ -162,7 +163,7 @@ Node.js (v18+)
 
 1. Environment Variables
 
-'Create a file named .env in the root SafeSpace directory and add the following:
+Create a file named .env in the root SafeSpace directory and add the following:
 ```
 # MongoDB
 MONGO_URI=your_mongodb_connection_string
@@ -188,7 +189,7 @@ PAYSTACK_PUBLIC_KEY=pk_test_... # Frontend Public Key
 Install dependencies for both the backend (root) and the frontend (frontend/).
 
 ##### Backend dependencies (from the SafeSpace root directory)
-'npm install'
+`npm install`
 
 #####  Frontend dependencies (navigate to the frontend folder)
 ```
@@ -200,7 +201,7 @@ npm install
 Start the backend and frontend development servers concurrently.
 
 #### 1. Start the Backend (from the SafeSpace root directory)
-'npm run dev-server # (Or whatever script you use to start Node/Express)'
+`npm run dev-server # (Or whatever script you use to start Node/Express)`
 
 #### 2. Start the Frontend (from the frontend directory)
 ```
@@ -208,7 +209,7 @@ cd frontend
 npm run dev # (Starts the Vite development server)
 ```
 
-'The application should now be accessible at http://localhost:5173 (or the port specified by Vite).'
+`The application should now be accessible at http://localhost:5173 (or the port specified by Vite).`
 
 ---
 
